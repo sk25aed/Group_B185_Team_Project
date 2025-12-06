@@ -18,9 +18,10 @@ df_clean <- df_raw |>
                   )
                 )       
 summary(df_clean[, year_cols])
+
 ##filter to production and import only
 df_pe <- df_clean |>
-  filter(Action %in% c("production", "export")
+  filter(Action %in% c("production", "export"))
 ##building global total per year
 df_long <- df_pe |>
   pivot_longer(
