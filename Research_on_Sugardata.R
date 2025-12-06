@@ -18,4 +18,23 @@ df_clean <- df_raw |>
                   )
                 )       
 summary(df_clean[, year_cols])
-              
+##filter to production and import only
+df_pe <- df_clean |>
+  filter(Action %in% c("production", "export")
+##building global total per year
+df_long <- df_pe |>
+  pivot_longer(
+    cols      = all_of(year_cols),
+    names_to  = "Year",
+    values_to = "Volume"
+  )
+##aggregate to global totals by Action and Years
+df_global <- df_long |>
+  group_by(Action, Year) |>
+  summarise(
+    TotalVolume = sum(Volume, na.rm = TRUE),
+    .groups     = "drop"
+  )
+
+         
+         
