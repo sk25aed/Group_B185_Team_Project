@@ -51,6 +51,7 @@ df_research
 summary(df_research)
 ## visualization
 ##Time‑series line plot for production and export
+png("lineplot.png")
 year_labels <- df_research$Year
 x <- seq_along(year_labels)
 y_min <- min(df_research$production, df_research$export, na.rm = TRUE) * 0.95
@@ -88,19 +89,22 @@ legend("topleft",
        bty    = "n",
        cex    = 0.9)
 ## Scatter plot of production vs export.
+png("scatterplot.png")
 plot(df_research$production, df_research$export,
-     xlab = "Global sugar production (thousand tonnes)",
-     ylab = "Global sugar exports (thousand tonnes)",
+     xlab = "Global sugar production ",
+     ylab = "Global sugar exports ",
      main = "Scatterplot of Global Production vs Export")
 abline(lm(export ~ production, data = df_research),
        col = "darkgreen", lwd = 2)
 ## Histogram for the production and export
+png("histogram_production.png")
 hist(df_research$production, 
      main = "Histogram of Global Production", 
-     xlab = "Production (thousand tonnes)") 
+     xlab = "Production") 
+png("")
 hist(df_research$export, 
      main = "Histogram of Global Export", 
-     xlab = "Export (thousand tonnes)") 
+     xlab = "Export ") 
 ## Basic descriptive statistics 
 summary(df_research[, c("production", "export")])
 
