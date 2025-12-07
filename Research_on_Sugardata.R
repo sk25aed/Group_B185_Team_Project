@@ -87,10 +87,15 @@ legend("topleft",
        pch    = c(16, 17),
        bty    = "n",
        cex    = 0.9)
-
-
-
-
+## Scatter plot of production vs export.
+plot(df_research$production,
+df_research$expport)
+xlab = "Global sugar production
+(tousand tonnes)"
+  ylab="Global sugar exports
+(thousand tonnes)"
+main="Scatterplot of Global 
+Production vs Export")
 
          
          
