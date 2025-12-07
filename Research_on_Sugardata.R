@@ -50,6 +50,7 @@ df_research <- df_global |>
 df_research
 summary(df_research)
 ## visualization
+##Time‑series line plot for production and export
 year_labels <- df_research$Year
 x <- seq_along(year_labels)
 y_min <- min(df_research$production, df_research$export, na.rm = TRUE) * 0.95
