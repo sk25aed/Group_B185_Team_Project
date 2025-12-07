@@ -36,6 +36,20 @@ df_global <- df_long |>
     TotalVolume = sum(Volume, na.rm = TRUE),
     .groups     = "drop"
   )
+## one row per Year, columns for production and export
+df_research <- df_global |>
+  pivot_wider(
+    names_from  = Action,
+    values_from = TotalVolume
+  ) |>
+##ordering years correctly
+ mutate(
+    Year = factor(Year, levels = year_cols)
+  )
+## Inspecting final research sub‑dataset
+df_research
+summary(df_research)
+
 
          
          
