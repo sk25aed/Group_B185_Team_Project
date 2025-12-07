@@ -101,7 +101,15 @@ hist(df_research$production,
 hist(df_research$export, 
      main = "Histogram of Global Export", 
      xlab = "Export (thousand tonnes)") 
-## Basic descriptive statistics summary(df_research[, c("production", "export")])
+## Basic descriptive statistics 
+summary(df_research[, c("production", "export")])
+
+##Pearson correlation
+pearson_result <- cor.test(df_research$production,
+                           df_research$export,
+                           method = "pearson")
+
+pearson_result
 
 
 
