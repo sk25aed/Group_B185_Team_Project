@@ -87,13 +87,22 @@ legend("topleft",
        pch    = c(16, 17),
        bty    = "n",
        cex    = 0.9)
-## Scatterplot of production vs export.
+## Scatter plot of production vs export.
 plot(df_research$production, df_research$export,
      xlab = "Global sugar production (thousand tonnes)",
      ylab = "Global sugar exports (thousand tonnes)",
      main = "Scatterplot of Global Production vs Export")
 abline(lm(export ~ production, data = df_research),
        col = "darkgreen", lwd = 2)
+## Histogram for the production and export
+hist(df_research$production, 
+     main = "Histogram of Global Production", 
+     xlab = "Production (thousand tonnes)") 
+hist(df_research$export, 
+     main = "Histogram of Global Export", 
+     xlab = "Export (thousand tonnes)") 
+## Basic descriptive statistics summary(df_research[, c("production", "export")])
+
 
 
          
