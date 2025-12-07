@@ -49,7 +49,22 @@ df_research <- df_global |>
 ## Inspecting final research sub‑dataset
 df_research
 summary(df_research)
+## visualization
+plot(df_research$Year, df_research$production,
+     type = "b",
+     col  = "blue",
+     xlab = "Marketing year",
+     ylab = "Volume (thousand tonnes)",
+     main = "Global Sugar Production and Export over Time")
 
+lines(df_research$Year, df_research$export,
+      type = "b",
+      col  = "red")
 
+legend("topleft",
+       legend = c("Production", "Export"),
+       col    = c("blue", "red"),
+       lty    = 1,
+       bty    = "n")
          
          
