@@ -50,21 +50,51 @@ df_research <- df_global |>
 df_research
 summary(df_research)
 ## visualization
-plot(df_research$Year, df_research$production,
-     type = "b",
-     col  = "blue",
-     xlab = "Marketing year",
-     ylab = "Volume (thousand tonnes)",
-     main = "Global Sugar Production and Export over Time")
+year_labels <- df_research$Year
+x <- seq_along(year_labels)
+y_min <- min(df_research$production, df_research$export, na.rm = TRUE) * 0.95
+y_max <- max(df_research$production, df_research$export, na.rm = TRUE) * 1.05
 
-lines(df_research$Year, df_research$export,
-      type = "b",
-      col  = "red")
+par(mar = c(5, 5, 4, 2)) 
+plot(x, df_research$production,
+     type = "n",
+     xaxt = "n",
+     ylim = c(y_min, y_max),
+     xlab = "Marketing year (2018/19-May2023/24)",
+     ylab = "Volume of sugar",
+     main = "Global Sugar Production and Export")
+
+axis(1, at = x, labels = year_labels)
+
+lines(x, df_research$production,
+      type = "o",
+      col  = "blue",
+      lwd  = 2,
+      pch  = 16)
+
+lines(x, df_research$export,
+      type = "o",
+      col  = "red",
+      lwd  = 2,
+      lty  = 2,
+      pch  = 17)
 
 legend("topleft",
-       legend = c("Production", "Export"),
+       legend = c("Global production", "Global exports"),
        col    = c("blue", "red"),
-       lty    = 1,
-       bty    = "n")
+       lty    = c(1, 2),
+       pch    = c(16, 17),
+       bty    = "n",
+       cex    = 0.9)
+
+
+
+
+
+
+
+
+
+
          
          
