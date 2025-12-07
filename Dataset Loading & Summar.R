@@ -1,7 +1,6 @@
 
 library(tidyverse)
-library(ggpubr)
-library(GGally)
+
 
 setwd("F:/RProject")
 
