@@ -101,7 +101,7 @@ png("histogram_production.png")
 hist(df_research$production, 
      main = "Histogram of Global Production", 
      xlab = "Production") 
-png("")
+png("histogram_export.png")
 hist(df_research$export, 
      main = "Histogram of Global Export", 
      xlab = "Export ") 
