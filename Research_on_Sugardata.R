@@ -115,7 +115,5 @@ pearson_result <- cor.test(df_research$production,
 
 pearson_result
 
-
-
          
          
