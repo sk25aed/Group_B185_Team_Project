@@ -96,7 +96,7 @@ plot(df_research$production, df_research$export,
      main = "Scatterplot of Global Production vs Export")
 abline(lm(export ~ production, data = df_research),
        col = "darkgreen", lwd = 2)
-## Histogram for the production and export
+## Histogram for the production and export from cleaned data according to reaearch question
 png("histogram_production.png")
 hist(df_research$production, 
      main = "Histogram of Global Production", 
@@ -105,10 +105,10 @@ png("histogram_export.png")
 hist(df_research$export, 
      main = "Histogram of Global Export", 
      xlab = "Export ") 
-## Basic descriptive statistics 
+## Basic descriptive statistics on cleaned data set 
 summary(df_research[, c("production", "export")])
 
-##Pearson correlation
+##Pearson correlation for research question
 pearson_result <- cor.test(df_research$production,
                            df_research$export,
                            method = "pearson")
