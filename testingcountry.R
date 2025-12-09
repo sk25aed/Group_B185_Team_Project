@@ -21,3 +21,7 @@ plot(df_brazil$production, df_brazil$export,
 
 abline(lm(export ~ production, data = df_brazil),
        col = "red")
+
+#Corelation For Brazil
+cor.test(df_brazil$production, df_brazil$export,
+         method = "spearman")
